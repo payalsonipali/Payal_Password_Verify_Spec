@@ -21,7 +21,7 @@ const friend = [
 
 describe("friend store",()=>{
      describe("read friends", ()=>{
-       it("through exception if file path is missing",()=>{
+       it("throw exception if file path is missing",()=>{
            assert.throws(()=>readFriends(),"file path is missing");
        });
 
