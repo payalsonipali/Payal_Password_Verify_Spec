@@ -4,19 +4,18 @@ const greetFriend = (filepath) => {
          const friendsList = friendStore.readFriends(filepath);
          var birthdatListOfFriends = [];
 
-
+         
          for(let itr=0; itr<friendsList.length; itr++){
 
             var singleFriend = friendsList[itr]
             
-            get_date_from_friends = singleFriend.dateOfBirth.substr(singleFriend.dateOfBirth.length-5);
+            const current_month = new Date().getMonth();
+            const current_date = new Date().getDate();
 
-            let date = new Date();
-            dateString = date.toISOString().slice(0,10);
-            currentDate = dateString.substr(dateString.length-5)
-
-            if(get_date_from_friends === currentDate){
+            console.log(current_date);
+            if((singleFriend.dateOfBirth.getDate() == current_date) && (singleFriend.dateOfBirth.getMonth() == current_month)){
                 birthdatListOfFriends.push(singleFriend.email);
+                console.log(birthdatListOfFriends);
                }
          }
          

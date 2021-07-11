@@ -1,10 +1,11 @@
 const birthday = require("./birthday")
+const nodemailer = require("nodemailer");
 
-const sendEmail = (filepath) => {
-  
-    console.log(birthday.greetFriend(filepath));
-     return birthday.greetFriend(filepath);
+
+const sendMail = (info) => {
+    let transporter = nodemailer.createTransport({});
+    transporter.sendMail(info);
 
 }
 
-module.exports = { sendEmail }
+module.exports = { sendMail }
